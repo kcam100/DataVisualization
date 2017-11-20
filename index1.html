@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+
+</head>
+
+<body>
+<div id="chartContainer">
+
+  <script type="text/javascript">
+
+    var svg = dimple.newSvg("#chartContainer", 590, 400);
+    d3.csv("/titanic_survival_rates.csv", function (data) {
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(60, 30, 510, 330)
+      myChart.addCategoryAxis("x", ["Class", "Sex"]);
+      myChart.addMeasureAxis("y", "Value");
+      myChart.addSeries("Sex", dimple.plot.bar);
+      myChart.draw();
+    });
+
+  </script>
+
+  <script type="text/javascript">
+     svg.append("text")
+    .attr("x", 295)             
+    .attr("y", 30)
+    .attr("text-anchor", "middle")  
+    .style("font-size", "16px") 
+    .style("text-decoration", "none")  
+    .text("Titanic Survival Rate");
+  </script>
+</div>
+</body>
+
+</html>

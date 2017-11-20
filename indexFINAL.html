@@ -1,0 +1,54 @@
+<html>
+
+<head>
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+
+  <style>
+    svg {
+    display: block;
+    margin: 0 auto;
+    }
+  </style>
+
+</head>
+
+<body>
+<div id="chartContainer">
+
+  <script type="text/javascript">
+
+    var svg = dimple.newSvg("#chartContainer", 590, 400);
+    d3.csv("/titanic_survival_rates2.csv", function (data) {
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(60, 30, 510, 330)
+
+      myChart.defaultColors = [
+          new dimple.color("#f48080"), // pink: female
+          new dimple.color("#2d676f") // blue: male
+      ];
+
+      var x = myChart.addCategoryAxis("x", ["Class", "Sex"]);
+      var y = myChart.addMeasureAxis("y", "Survival Rate");
+      myChart.addSeries("Sex", dimple.plot.bar);
+      myChart.addLegend(65, 40, 510, 50, "right");
+      y.tickFormat = ",.2f";
+      myChart.draw();
+    });
+
+  </script>
+
+  <script type="text/javascript">
+     svg.append("text")
+    .attr("x", 320)             
+    .attr("y", 20)
+    .attr("text-anchor", "middle")  
+    .style("font-size", "18px") 
+    .style("text-decoration", "underline")  
+    .text("Titanic Passenger Survival Rates Based on Sex and Socioeconomic Class");
+  </script>
+
+</div>
+</body>
+
+</html>

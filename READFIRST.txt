@@ -1,0 +1,13 @@
+d3 folder - contains d3 JS library
+index1.html - First coded visualization
+indexFINAL.html - Final coded visualization
+README.ipynb - Raw Jupyter notebook Report 
+README.md - Markdown version of Report (Summary, Design, Feedback, Resources)
+Resources - Links to any resource used while building my visualization.
+sketch1.jpg - Initial notebook sketch of Titanic data visualization
+titanic_cleaning.py - Python file with code for cleaning database, as well as creating new .csv
+titanic-data.csv - Initial Titanic dataset
+titanic_survival_rates.csv - Exported .csv from titanic_cleaning.py
+titanic_survival_rates2.csv- .CSV with updated column name ('value' -> 'Survival Rate')
+TitanicVisualization1.png - Image of first coded visualization
+TitanicVisualizationFINAL.png - Image of final coded clean visualization
